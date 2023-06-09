@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Size {
+  sizeId Int   @id @default(autoincrement())
+  size   Float
+  shoeId Int
+  shoe   Shoes @relation(fields: [shoeId], references: [shoeId])
+}
+
+model Image {
+  imageId Int    @id @default(autoincrement())
+  name    String
+  src     String
+  shoeId  Int
+  shoe    Shoes  @relation(fields: [shoeId], references: [shoeId])
+}
+
+model Shoes {
+  shoeId Int          @id @default(autoincrement())
+  name   String
+  brand  String
+  type   String
+  gender GenderOption
+  color  String
+  price  Int          @default(0)
+  sizes  Size[]
+  images Image[]
+}
+
+model Hero {
+  heroId Int    @id @default(autoincrement())
+  name   String
+  img    String
+  status Status
+}
+
+model Latests {
+  latestId Int    @id @default(autoincrement())
+  name     String
+  img      String
+  status   Status
+}
+
+model Announcement {
+  announcementId Int     @id @default(autoincrement())
+  title          String
+  subtitle       String
+  link           String
+  status         Status?
+}
+
+enum GenderOption {
+  MALE
+  FEMALE
+  UNISEX
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
