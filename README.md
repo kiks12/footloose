@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Footloose
 
-## Getting Started
+Footloose is a business between two enthusiastic sneaker heads, it is primarily a shoe retailer business. This website will increase the internet presence of the company, aside from, of course, the facebook marketplace.
 
-First, run the development server:
+# Frameworks and Tools
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+| Framework     | Version  |
+| ------------- | -------- |
+| React JS      | 18.2.0   |
+| Next JS       | 13.4.4   |
+| Prisma (ORM)  | 4.15.0   |
+| Tailwind CSS  | 3.3.2    |
+| Typescript    | 5.0.4    |
+| Framer Motion | 10.12.16 |
+
+# Getting Started
+
+Step 1: Clone the repository [https://github.com/kiks12/footloose](https://github.com/kiks12/footloose)
+
+Step 2: Run the following code on the terminal to install dependencies
+
+```jsx
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Step 3: Download Postrgesql and Pgadmin 4 (disregard if already available)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Step 4: Create database called footloose using the Pgadmin 4
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Step 5: Using the terminal, run the prisma migration
 
-## Learn More
+```jsx
+npx prisma migrate dev --name <name>
+```
 
-To learn more about Next.js, take a look at the following resources:
+Step 6: Change necessary information in the DATABASE_URL in the .env file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```jsx
+DATABASE_URL = "postgresql://postgres:francisjames11@localhost:5432/footloose";
+DATABASE_URL = "postgresql://username:password@localhost:port/database";
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Step 7: Seed your database
 
-## Deploy on Vercel
+```jsx
+npx prisma db seed
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Step 8: Run the app in development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```jsx
+npm run dev
+```
