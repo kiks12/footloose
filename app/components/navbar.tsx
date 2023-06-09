@@ -57,10 +57,7 @@ const Navbar: React.FC<Props> = () => {
 						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
 						onClick={() => setMobileMenuOpen((prev) => !prev)}
 					>
-						<span className="sr-only">Open main menu</span>
-						<span>
-							<FontAwesomeIcon icon={faBars} />
-						</span>
+						<FontAwesomeIcon icon={faBars} />
 					</button>
 				</div>
 
@@ -144,10 +141,8 @@ const Navbar: React.FC<Props> = () => {
 							<span>Search</span>
 						</button>
 					</form>
-					<button>
-						<button onClick={openCartCallback} className="ml-5">
-							<FontAwesomeIcon icon={faCartShopping} />
-						</button>
+					<button onClick={openCartCallback} className="ml-5">
+						<FontAwesomeIcon icon={faCartShopping} />
 					</button>
 				</div>
 			</nav>

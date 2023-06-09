@@ -52,11 +52,11 @@ model Latests {
 }
 
 model Announcement {
-  announcementId Int     @id @default(autoincrement())
+  announcementId Int    @id @default(autoincrement())
   title          String
   subtitle       String
   link           String
-  status         Status?
+  status         Status
 }
 
 enum GenderOption {
